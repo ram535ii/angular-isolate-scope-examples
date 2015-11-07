@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="directiveExample">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="prettify.css" rel="stylesheet"></link>
+  </head>
+  <body ng-controller="sampleController">
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="child">
+        <p> Directive Child Scope </p>
+        <input ng-model="childChange"> </input>
+        <button ng-click="passByExpressionFunction({change: childChange})"> Change Amount to {{childChange}}</button>
+      </div>
+    </script>
+
+    <p> PARENT SCOPE </p>
+    <p> The child scope changes data in the parent scope, not its own scope. Try change the inputs. </p>
+    <sample-directive pass-by-expression-function="changeAmount(change)"> </sample-directive>
+
+    <p> Amount: {{ amount }} </p>
+    <input ng-model="change"> </input>
+    <button ng-click="changeAmount(change)"> Change Amount to {{change}}</button>
+  </body>
+</html>
+

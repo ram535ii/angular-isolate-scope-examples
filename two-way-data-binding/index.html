@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="directiveExample">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="prettify.css" rel="stylesheet"></link>
+  </head>
+  <body ng-controller="sampleController">
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="child">
+        <p> Directive Child Scope </p>
+        <p> Amount: {{ passByReference }} </p>
+        <input ng-model="passByReference"> </input>
+      </div>
+    </script>
+
+    <p> PARENT SCOPE </p>
+    <p> You can change the value from both inside and outside the directive. Try change the inputs. </p>
+    <sample-directive pass-by-reference="amount"> </sample-directive>
+
+    <p> Amount: {{ amount }} </p>
+    <input ng-model="amount"> </input>
+  </body>
+</html>
+
