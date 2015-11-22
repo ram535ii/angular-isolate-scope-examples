@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="directiveExample">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="prettify.css" rel="stylesheet"></link>
+  </head>
+  <body ng-controller="sampleController">
+    <script type="text/ng-template" id="myModalContent.html">
+      <div class="child">
+        <p> Directive Child Scope </p>
+        <p> {{title}} </p>
+        <input placeholder="Username" ng-model="loginDetails.username"> </input>
+        <br>
+        <input placeholder="Password"> </input>
+        <br>
+        <button> Login </button>
+        <button ng-click="submitLoginClose()"> Cancel </button>
+        <br>
+        <p> Time since sessions expired: {{ loginDetails.timeSinceExpiration }}</p>
+      </div>
+    </script>
+
+    <p> PARENT SCOPE </p>
+    <div ng-show="loginViewVisible">
+      <login-form title="Please enter your credentials to {{ loginMode }}" submit-login-close="handleLoginClose()" login-details="userDetails"> </login-form>
+    </div>
+
+    <p> Change login mode text:</p>
+    <input ng-model="loginMode"></input>
+
+    <br><br>
+
+    <button ng-click="loginViewVisible = true"> Show Login View</button>
+
+    <br><br>
+
+    <p> Stored user details: </p>
+    <input ng-model="userDetails.username"></input>
+    <input ng-model="userDetails.timeSinceExpiration"></input>
+  </body>
+</html>
+

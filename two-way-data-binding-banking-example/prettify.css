@@ -1,0 +1,12 @@
+body {
+  margin: 15px;
+  border-color: black;
+  border-style: solid;
+
+}
+.child {
+  margin: 15px;
+  border-color: red;
+  color: red;
+  border-style: solid;
+}
